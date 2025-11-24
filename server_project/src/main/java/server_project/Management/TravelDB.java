@@ -13,7 +13,7 @@ import server_project.DTOPackages.Travel;
 public class TravelDB extends DB{ // 🚨 [수정됨] 클래스 이름을 TravelDB로 유지합니다.
 	
 	// 테이블 이름을 'travel_reviews'로 가정합니다.
-	private static final String TABLE_NAME = "travel_reviews"; 
+	private static final String TABLE_NAME = "Travel"; 
 
 	// 🚨 [수정됨] DTO 타입과 변수 이름이 Travel로 통일됩니다.
 	public static void insertTravelsDB(List<Travel> travelsList) // insertReviewsDB -> insertTravelsDB

@@ -156,18 +156,18 @@
                 </a>
             </div>
 
-            <!-- 카테고리 2: 블로그 -->
+            <!-- 카테고리 2: 여행 -->
             <div class="category-card">
                 <div>
-                    <div class="category-title">블로그 검색</div>
+                    <div class="category-title">여행 검색</div>
                     <div class="category-desc">
-                        사용자 후기, 경험담, 상세 리뷰를 중심으로<br>
-                        Naver 블로그 검색 API를 사용하는 페이지로 이동합니다.
+    					네이버 블로그의 생생한 여행 상세 리뷰를 중심으로<br>
+    					Naver 블로그 검색 API를 사용하는 페이지로 이동합니다.
                     </div>
                 </div>
-                <a href="blog.jsp" class="category-link">
+                <a href="Travel.jsp" class="category-link">
                     <button type="button" class="category-button">
-                        블로그 페이지로 이동
+                        여행 페이지로 이동
                     </button>
                 </a>
             </div>

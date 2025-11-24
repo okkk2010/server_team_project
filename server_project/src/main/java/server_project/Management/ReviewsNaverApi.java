@@ -28,7 +28,7 @@ public class ReviewsNaverApi {
         }
 
 
-        String apiURL = "https://openapi.naver.com/v1/search/blog?query=" + text + "&display=100";    // JSON 결과
+        String apiURL = "https://openapi.naver.com/v1/search/blog?query=" + text + "&display=10";    // JSON 결과
         //String apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text; // XML 결과
 
         Map<String, String> requestHeaders = new HashMap<>();
@@ -98,5 +98,29 @@ public class ReviewsNaverApi {
         } catch (IOException e) {
             throw new RuntimeException("API 응답을 읽는 데 실패했습니다.", e);
         }
+    }
+    // "요리" 키워드로 검색해서 cook 테이블에 업데이트하는 메서드
+    public static void updateCookDB() {
+        String clientId = EnvConfig.getProperty("NAVER_CLIENT_ID");
+        String clientSecret = EnvConfig.getProperty("NAVER_CLIENT_SECRET");
+
+        String text = null;
+        try {
+            text = URLEncoder.encode("요리", "UTF-8"); // 검색어를 "요리"로 고정
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException("검색어 인코딩 실패", e);
+        }
+
+        
+        String apiURL = "https://openapi.naver.com/v1/search/blog?query=" + text + "&display=20";
+
+        Map<String, String> requestHeaders = new HashMap<>();
+        requestHeaders.put("X-Naver-Client-Id", clientId);
+        requestHeaders.put("X-Naver-Client-Secret", clientSecret);
+        String responseBody = get(apiURL, requestHeaders);
+
+        List<Reviews> reviewsList = ReviewJSONDataParser.parseReviewsFromJSON(responseBody);
+        
+        ReviewsDB.insertCookList(reviewsList); 
     }
 }

@@ -181,7 +181,7 @@
                         Naver 책 검색 API를 사용하는 페이지로 이동합니다.
                     </div>
                 </div>
-                <a href="book.jsp" class="category-link">
+                <a href="cooking.jsp" class="category-link">
                     <button type="button" class="category-button">
                         도서 페이지로 이동
                     </button>
